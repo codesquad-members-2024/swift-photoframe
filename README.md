@@ -60,7 +60,7 @@ iOS 첫번째 미션
 
 - UINavigationController
 뷰 컨트롤러의 한 종류로, 네비게이션 스택 관리를 위해 사용된다.
-ViewController는 계층을 이루면서 구성하고, 대표적으로 알려진 것이 NavigationController, TabBarController 이다.
+ViewController는 계층을 이루면서 구성하고, 대표적으로 알려진 것이 NavigationController, TabBarController 이다..
  
 </div>
 </details>
