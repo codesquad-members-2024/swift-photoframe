@@ -36,9 +36,7 @@ iOS 첫번째 미션
 <img width="260" alt="스크린샷 2024-03-04 오후 5 04 06" src="https://github.com/joho2022/joho2022/assets/104732020/2a0f3841-bb56-4d27-9cd0-5a2cea5ff9e2">
 
 ## 결과
-
-<img width="346" alt="스크린샷 2024-03-04 오후 4 44 37" src="https://github.com/joho2022/joho2022/assets/104732020/830045a3-1dcf-4581-9f5b-3e71c592b043">
-<img width="745" alt="스크린샷 2024-03-04 오후 4 42 10" src="https://github.com/joho2022/joho2022/assets/104732020/37ef7c71-96de-4efc-968e-5cac41d1b87a">
+<img width="201" alt="스크린샷 2024-03-05 오후 12 13 33" src="https://github.com/joho2022/joho2022/assets/104732020/d189fa6c-c2ca-4561-a6a2-0508eca32d51">
 
 ## UITabBarController 와 UITabBar?
 - UITabBarController
@@ -89,8 +87,8 @@ ViewController는 계층을 이루면서 구성하고, 대표적으로 알려진
 - firstLabel.numberOfLines = 0 : 여러 줄의 텍스트를 표시할 수 있음, 현재 가로 줄을 해결해야하기 때문에 해결 안됨
 - Label을 만들때 Label의 크기를 조절안해서 발생 → 크기를 조절함
 
-결과
-![Simulator Screenshot - iPhone 15 Pro - 2024-03-05 at 11 51 28](https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/3a71fe37-87c4-4553-8ee0-5f2e5d3b641c)
+## 결과
+<img width="201" alt="스크린샷 2024-03-05 오후 12 13 33" src="https://github.com/joho2022/joho2022/assets/104732020/d189fa6c-c2ca-4561-a6a2-0508eca32d51">
 
 </div>
 </details>
