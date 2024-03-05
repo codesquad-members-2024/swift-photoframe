@@ -55,6 +55,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyH-ad-OKs">
+                                <rect key="frame" x="169" y="220" width="54" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다음"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpe-Wf-5fo">
+                                <rect key="frame" x="169" y="220" width="54" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다음"/>
+                                <connections>
+                                    <action selector="nextButtonTouched:" destination="7Zo-S2-oIZ" eventType="touchUpInside" id="dJo-ha-ihL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q5l-od-7au"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,12 +77,12 @@
                     <tabBarItem key="tabBarItem" title="Item 1" image="1.square.fill" catalog="system" id="gLO-D9-L0E"/>
                     <connections>
                         <outlet property="firstDescription" destination="zs2-og-lmA" id="z5g-Wf-Xj5"/>
-                        <outlet property="firstLabel" destination="7Jb-Su-mgJ" id="nNz-yp-iSi"/>
+                        <outlet property="renamefirstLabel" destination="7Jb-Su-mgJ" id="nNz-yp-iSi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MC9-Hw-Vkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1777.8625954198474" y="-505.63380281690144"/>
+            <point key="canvasLocation" x="2283" y="-435"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KyC-a4-H56">
