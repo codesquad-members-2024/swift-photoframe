@@ -228,3 +228,137 @@ false를 설정하면 텍스트 색상이 흐려짐
 </details>
 
 &nbsp;
+
+<details>
+<summary>IBAction 연결하기</summary>
+
+## 주요 작업
+
+- [x]  IBAction을 연결하고 원하는 로직을 구현한다.
+- [x]  버튼에 IBAction을 추가할 때 이벤트 종류를 학습한다.
+
+## 학습 키워드
+
+**IBAction : UI 요소(버튼)를 사용자가 해당 요소와 상호작용할 때 발생하는 이벤트를 코드 내의 메서드와 연결하기 위해 사용되는 키워드**
+
+**UIButton : 사용자 상호 작용에 응답하여 사용자 지정 코드를 실행하는 컨트롤,** 
+
+1. 사용자가 버튼을 탭할 때 특정 작업을 수행
+2. 다양한 스타일 지원 (텍스트, 이미지), 
+3. 상태에 따른 변화: **UIButton**은 다양한 상태(**normal**, **highlighted**, **disabled** 등)를 가진다.
+
+## 고민과 해결
+
+### IBOutlet 변수명 변경하는 법
+
+마우스 우측클릭 → Refactor → Rename : @IBOutlet변수의 이름을 스토리보드와 연동을 유지한 채 변경 가능함
+
+### IBAction 삭제 시 주의할 점
+
+1. 코드 내 IBAction을 지워도 완벽하게 삭제되지 않음
+2. IBAction을 연결한 객체를 클릭한 뒤 확인해보면 남아있는 action의 x를 눌러줘야 완벽하게 삭제가 된다.
+<img width="644" alt="스크린샷 2024-03-05 오후 2 36 28" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/d5a5a6d0-ed19-4088-9af4-c6ee205865f1">
+
+    
+
+## 결과
+
+### Before
+
+<img width="417" alt="스크린샷 2024-03-05 오후 2 39 05" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/e864dbdb-0a81-4553-9759-41b3736be072">
+
+### After
+<img width="417" alt="스크린샷 2024-03-05 오후 2 39 13" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/a6a44dd5-4487-4701-ab30-b0027f03d276">
+
+</div>
+</details>
+
+<details>
+<summary>IBAction 연결하기-추가학습</summary>
+
+### IBAction과 IBOutlet 연결 구조
+
+앱 실행 중 사용자의 UI 요소와의 상호 작용은 
+
+**IBAction** 메서드를 통해 뷰에서 컨트롤러에 입력/변화를 준다.
+
+**IBOutlet**을 통한 연결로 컨트롤러가 뷰에서 UI 요소의 상태를 업데이트한다.
+
+### IBAction 이벤트 종류
+
+### Did End On Exit
+
+사용자가 텍스트 필드에서 편집을 마치고, Return 키, Done 키 등을 눌러 텍스트 필드의 편집을 종료할 때 발생
+
+- 사용자가 로그인 폼에서 비밀번호 입력 후 Return 키를 눌러 로그인을 시도할 때 처리
+
+### Editing Changed
+
+텍스트 필드의 내용이 변경될 때마다 발생
+
+사용자가 입력하는 동안 검색 결과를 필터링하거나 입력값을 검증 체크할 때 사용
+
+### Editing Did Begin
+
+사용자가 텍스트 필드에 터치하여 편집을 시작할 때 발생
+
+텍스트 필드 선택 시 관련된 도움말이나 힌트를 표시할 때 사용
+
+### Editing Did End
+
+사용자가 텍스트 필드의 편집을 종료할 때 발생
+
+편집이 끝난 후 입력 데이터의 검증, 텍스트 필드의 스타일을 변경할 때 사용
+
+## **위에 4가지는 UITextField에서 사용자의 입력과 상호작용을 감지하고 처리하기 위해 사용**
+
+### Primary Action Triggered
+
+iOS 14이상에서 UIControlEvents에 추가된 새로운 이벤트 유형이다.
+
+버튼을 연속해서 빠르게 여러 번 탭할 때 발생, 주로 사용자가 같은 버튼을 반복해서 누를 필요가 있을 때 사용. (숫자를 증가시키거나 감소시키는 Stepper ****컨트롤에 사용,
+
+- **Touch Down** 이벤트가 처음 탭할 때 발생하는 반면,
+- **Touch Down Repeat**은 그 이후 연속된 탭에서 발생하는 이벤트
+
+### Touch Cancel
+
+현재 터치가 취소되었을 때 발생 (전화나 텍스트 메시지 알림 등으로 인해 앱이 중단될 때 발생)
+
+### Touch Down
+
+사용자가 버튼 내부 어디에서든 터치를 시작할 때 발생
+
+### Touch Down Repeat
+
+사용자가 컨트롤을 길게 누르고 있을 때, **touchDown** 이벤트에 이어서 발생
+
+### Touch Drag Enter
+
+사용자가 버튼 외부에서 터치를 시작하고, 드래그하여 버튼 내부로 들어올 때 발생
+
+### Touch Drag Exit
+
+사용자가 버튼 내부에서 터치를 시작하고, 드래그하여 버튼 외부로 나갈 때 발생
+
+### Touch Drag Outside
+
+사용자가 버튼 내부에서 터치를 시작하고, 손가락을 들지 않은 채로 버튼 외부로 드래그할 때 발생
+
+### Touch Up Outside
+
+사용자가 버튼 내부에서 터치를 시작했지만, 버튼 외부에서 손가락을 떼었을 때 발생
+
+### **valueChanged**
+
+슬라이더, 스위치, 세그먼트 컨트롤과 같이 값이 변경될 때 발생하는 이벤트, 버튼에는 직접적으로 적용되지 않고, UIControl을 상속받은 다른 컨트롤에서 사용한다.
+
+## 버튼에 액션을 여러개 추가할 수 있을까? ✅
+
+<img width="300" alt="스크린샷_2024-03-05_오후_3 27 08" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/2898a242-8c50-44ce-9092-778e1e62ec3a">
+
+## 여러 버튼을 동시에 하나의 액션에 연결할 수 있을까?✅
+<img width="670" alt="스크린샷 2024-03-05 오후 4 07 11" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/9464c3ad-1d72-4eca-a9e3-73f351a373ce">
+
+</div>
+</details>
