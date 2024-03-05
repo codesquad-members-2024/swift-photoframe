@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var renamefirstLabel: UILabel!
     @IBOutlet var firstDescription: UILabel!
     
     override func viewDidLoad() {
@@ -17,11 +17,11 @@ class ViewController: UIViewController {
         
         
         
-        self.firstLabel.text = "KAI의 사진액자"
+        self.renamefirstLabel.text = "KAI의 사진액자"
         self.firstDescription.text = "KAI의 사진액자 설명입니다."
         
         
-        let fullText = firstLabel.text ?? ""
+        let fullText = renamefirstLabel.text ?? ""
         let attributedString = NSMutableAttributedString(string: fullText)
         
         let range1 = (fullText as NSString).range(of: "KAI")
@@ -32,11 +32,14 @@ class ViewController: UIViewController {
         
         attributedString.addAttribute(.foregroundColor, value: UIColor.blue, range: range2)
         
-        firstLabel.attributedText = attributedString
+        renamefirstLabel.attributedText = attributedString
         
     }
     
-    
-    
+    @IBAction func nextButtonTouched(_ sender: Any) {
+        self.renamefirstLabel.textColor = UIColor.blue
+        self.renamefirstLabel.backgroundColor = UIColor.yellow
+        self.renamefirstLabel.alpha = 0.5
+    }
 }
 
