@@ -362,8 +362,6 @@ iOS 14이상에서 UIControlEvents에 추가된 새로운 이벤트 유형이다
 
 </div>
 </details>
-<<<<<<< HEAD
-=======
 
 &nbsp;
 
