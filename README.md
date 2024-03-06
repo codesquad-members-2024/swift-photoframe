@@ -444,4 +444,3 @@ UINavigationController에서 사용된다. 목적지 뷰 컨트롤러가 네비�
 
 </div>
 </details>
->>>>>>> e7054c3 (README 업데이트: Scene을 Segue로 연결하기 내용추가)
