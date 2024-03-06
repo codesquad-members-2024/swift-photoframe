@@ -362,3 +362,86 @@ iOS 14이상에서 UIControlEvents에 추가된 새로운 이벤트 유형이다
 
 </div>
 </details>
+<<<<<<< HEAD
+=======
+
+&nbsp;
+
+<details>
+<summary>Scene을 Segue로 연결하기</summary>
+
+## 주요 작업
+
+- [x]  새로운 Scene을 추가하고, Segue로 연결하기
+- [x]  Segue에 액션에 있는 여러 항목들의 효과를 비교하며 학습하기
+
+## 학습 키워드
+
+<img width="521" alt="UIStructure" src="https://github.com/codesquad-members-2024/be-chess/assets/104732020/aa9eb0d3-1c8e-47ac-b42e-29249253a830">
+
+### UIScreen
+
+물리적인 화면의 속성을 나타낸다.
+
+iOS 디바이스는 하나이상의 화면을 가질 수 있고, 기본 디스플레이와 외부 디스플레이처럼 각 화면은 UIScreen 객체로 표현된다.
+
+### UIWindowScene
+
+iOS13부터 도입되어 앱의 UI 인스턴스를 나타낸다.
+
+하나의 앱이 여러개의 UIWindowScene을 가질 수 있따.
+
+### UIWindow
+
+앱의 콘텐츠를 담는 컨테이너,
+
+하나 이상의 UIView를 포함한다. 사용자 인터페이스의 배경을 제공한다.
+
+### UIView
+
+화면에 표시되는 모든 시각적 요소의 기본 클래스
+
+버튼, 텍스트 라벨, 이미지 등등.. 모든 UI컴포넌트는 UIView를 상속받아 구현된다.
+
+**Scene :** 앱의 특정 화면 또는 뷰 컨트롤러의 인스턴스를 시각적으로 표현한다. 즉 사용자 인터페이스의 구조를 시각적으로 구성한 것
+
+**Segue :** 뷰 컨트롤러 간의 화면전환
+
+## 고민과 해결
+
+## Segue에 액션에 있는 여러 항목들은 어떤 효과가 있는가?
+
+### 모달
+
+사용자에게 일시적으로 집중을 요구하는 컨텐츠를 표시할 때 사용한다.
+
+### show(push)
+
+UINavigationController에서 사용된다. 목적지 뷰 컨트롤러가 네비게이션 스택에 푸시된다.
+
+네비게이션 바가 있을 경우, 자동으로 ‘뒤로’버튼이 제공되어 이전화면으로 돌아갈 수 있다.
+
+→ 현재는 NavigationController가 아니기 때문에 모달형식으로 표시된다.
+
+### show Detail
+
+원래 화면을 Master, 새 화면을 Detail로 표시한다.
+
+→ 아이폰에서는 똑같아 보이지만 아이패드에서는 화면이 둘로 분할돼서 보이게 된다.
+
+### Present Modally
+
+모달형식으로 표시된다. 원래화면은 새화면 뒤에 존재한다.
+
+### Popover Presentation
+
+아이패드에서 팝업창을 띄운다.
+
+→ 아이폰에서는 show Detail처럼 의미가 없다.
+
+## 결과
+<img width="558" alt="스크린샷 2024-03-06 오후 12 54 38" src="https://github.com/codesquad-members-2024/be-chess/assets/104732020/99a8ab46-aaa0-48b9-9876-9a9b82842ff6">
+
+</div>
+</details>
+>>>>>>> e7054c3 (README 업데이트: Scene을 Segue로 연결하기 내용추가)
