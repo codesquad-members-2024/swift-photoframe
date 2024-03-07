@@ -442,3 +442,128 @@ UINavigationController에서 사용된다. 목적지 뷰 컨트롤러가 네비�
 
 </div>
 </details>
+
+&nbsp;
+
+<details>
+<summary>ViewController 연결하기</summary>
+
+## 🎯주요 작업
+
+- [x]  ViewController 역할과 동작 방식 학습
+- [x]  ViewController 콜백  함수 역할과 실행순서 학습
+- [x]  ViewController와 Scene 연결
+- [x]  Segue를 제거하고 다음 화면을 보여줄 때 코드구현
+
+## 📚학습 키워드
+![다운로드](https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/1bcc76a9-1b97-4a77-8049-4db1cd47adc1)
+
+### View LifeCycle : 뷰 컨트롤러의 생성부터 소멸까지의 생명주기
+
+### loadView()
+
+뷰 컨트롤러가 관리하는 뷰가 로드되는 단계, 직접 호출하는 경우는 거의 없다
+
+### viewDidLoad()
+
+뷰의 로딩이 완료된 후 호출된다. 뷰의 초기 설정을 구성하는데 사용,
+
+이 시점에 뷰의 계층구조가 메모리에 로드되었지만, 아직 화면에 나타나지 않은 상태
+
+### viewWillAppear
+
+뷰 컨트롤러의 뷰가 뷰 계층에 추가되고 화면에 보이기 직전에 호출한다.
+
+뷰의 크기 조정, 데이터 새로고침 등이 이루어질 수 있다.
+
+### viewDidAppear
+
+뷰 컨트롤러의 뷰가 뷰 계층에 추가되어 화면에 나타난 직후 호출된다.
+
+애니메이션을 시작하거나, 뷰가 나타난 후 필요한 작업을 수행할 때 사용
+
+### viewWillDisappear
+
+뷰 컨트롤러의 뷰가 뷰 계층에서 사라지기 직전에 호출된다.
+
+이 시점에서 작업을 정리하거나, 키보드를 숨기는 등의 작업을 수행할 때 사용
+
+### viewDidDisappear
+
+뷰 컨트롤러의 뷰가 뷰 계층에서 사라지고 화면에서 사라진 직후 호출된다.
+
+### ViewController : iOS 앱에서 화면의 기본단위의 “뷰”를 관리하는 역할
+
+UIKit프레임워크의 중심적인 역할을 하는 클래스 중 하나,
+
+사용자 인터페이스의 화면을 담당,
+
+즉, UIViewController는 하나 이상의 뷰(UIView 객체)를 관리하며, 이 뷰들은 사용자와의 상호작용을 처리하고 데이터를 표시
+
+## 💻결과
+![step5](https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/5d36290c-a85f-4edc-88d4-a85164da2634)
+<img width="702" alt="스크린샷 2024-03-07 오전 7 29 28" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/7e1be3e0-9760-4e4c-b063-c45ba203dc12">
+
+## 📚추가학습
+
+## 뷰 컨트롤러와 관련된…
+
+### viewController 역할
+
+- 뷰 계층 관리한다
+- 뷰를 관리하면서 필요한 데이터 사이 매개체이다
+- 화면 전체의 사용자 상호작용과 리소스를 관리한다
+- 화면 사이즈, 회전에 대해 대응한다.
+
+root view controller는 화면을 가득 채우는 것!!!!!!!
+
+### MVC (Model View Controller)
+
+디자인 패턴, 애플리케이션을 세 가지 구성요소로 나눠 관리한다.
+
+- Model : 데이터와 비즈니스 담당
+- View : 사용자 인터페이스 담당
+- Controller : 모델과 뷰 사이의 상호작용 - ViewController는 여기에 담당
+
+### Scene
+
+메뉴, 게임 플레이, 점수 화면처럼 사용자에게 보여지는 하나의 화면
+
+## UIScene
+
+iOS13에 도입됨. Scene의 생명주기를 관리하는 클래스라고 생각, UIScene을 사용함으로
+
+앱은 여러개의 독립적인 Scene을 사용할 수 있음
+![b8139742d00d42ac54ef57499fb91db1](https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/2a666d45-8f37-4d85-bd10-de6c6995e2be)
+
+ex ) iPadOS의 Split View와 같은 고급 멀티태스킹 기능
+
+### UIWindowScene
+
+UIScene의 서브클래스
+
+하나의 앱이 여러개의 UIWindowScene을 가질 수 있다. 그리고 하나 이상의 윈도우(Window)를 관리하는 데 특화된 클래스
+
+멀티 윈도우 환경에서 각 윈도우의 생명 주기와 관련된 이벤트를 처리
+
+### Window
+
+보통 아무 그려지는 것이 없고, 검정색 바탕, 그위에 rootViewController가 윈도우를 가득채우는 역할
+
+## System View Controllers
+
+애플은 View Controller를 자주 사용하라고 권장한다
+
+이때, 개발자가 자주 사용하는 표준 사용자 인터페이스를 쉽게 구현할 수 있도록, 일관된 사용자 경험을 제공하기 위해 iOS 시스템에 의해 사전에 디자인되고 구현된 컨트롤러이다.
+
+## Segue를 제거하고 다음 화면을 보여줄 때 코드로 보여주는 방법.. 3가지가 있음
+
+1. ViewController의 view 바꿔치기
+    1. ViewController의 view를 바꿔치는 방법은 메모리 overflow 위험이 있기 때문에 좋은 방법이 아니다.
+2. ViewController가 다른 ViewController를 호출(present)
+<img width="857" alt="스크린샷 2024-03-07 오후 1 17 56" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/b6c368fe-6edc-4faf-b4ac-880ccdf40939">
+
+3. NavigationViewController 사용하여 화면 전환(push)
+
+</div>
+</details>
