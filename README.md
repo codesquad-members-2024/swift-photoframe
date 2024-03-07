@@ -567,3 +567,104 @@ UIScene의 서브클래스
 
 </div>
 </details>
+
+&nbsp;
+
+<details>
+<summary>Container ViewController 활용하기</summary>
+
+## 🎯주요 작업
+
+- [x]  네비게이션 컨트롤러를 Embed시켜서 동작
+
+## 📚학습 키워드
+
+### **ViewController Container**
+
+직접 무언가를 보여주는 역할이 아니며, 뷰 컨트롤러 간에 부모-자식 관계를 형성하여 자식을 관리하는 역할을 하는 뷰 뷰컨트롤러이다.
+
+즉, viewController Container가 Content View Controller들을 관리하는 것으로 하나의 개념으로 생각한다.
+
+UIKit에서 기본적으로 제공하는 System Container View Controller들이 있다.
+
+- UITabBarController
+- UINavigationController
+
+### **TabBarController**
+
+ 화면 하단에 위치한 탭 바를 통해 사용자는 다양한 섹션(뷰 컨트롤러) 사이를 쉽게 전환할 수 있다.
+
+소셜 미디어 앱의 예시) 홈 피드,  검색 기능,  프로필 설정
+
+### **NavigationController**
+
+계층적인 콘텐츠 구조, 뷰 컨트롤러를 스택에 넣고(pop and push) 빼는 방식으로 관리. 
+
+화면 상단의 네비게이션 바를 통해 사용자는 현재 위치를 확인하고 이전 화면으로 돌아갈 수 있다.
+
+결론…
+
+- **UITabBarController:** 앱의 주요 섹션 간의 전환을 위해 사용
+- **UINavigationController:** 각 섹션 내의 상세 내용이나 추가 단계로 이동을 관리하기 위해 사용
+
+## 💻고민과 해결
+
+### 내비게이션 컨트롤러가 있을 경우와 없을 경우 화면 전환 동작이 어떻게 다른지, 화면들 포함관계가 있는지에 대해..
+
+### 네비게이션 컨트롤러가 있는 경우 ✅
+<img width="403" alt="스크린샷 2024-03-07 오후 5 05 30" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/1694a273-07a7-4e52-b306-d08c6f0dc586">
+
+하나 이상의 뷰 컨트롤러를 계층적으로 관리하게 된다. 
+
+사용하게 되면 뷰 컨트롤러들이 스택으로 쌓이게 된다.
+
+- 사용자가 새로운 화면으로 이동하면 뷰 컨트롤러가 스택의 맨위에 push
+- 사용자가 이전 화면으로 이동하면 뷰 컨트롤러가 스택에서 pop → 화면이 사라짐
+
+네비게이션 바를 통해 자동으로 ‘뒤로’버튼이 제공되고, 사용자가 계층적인 콘텐츠 구조를 쉽게 파악이 가능하다.
+
+### 네비게이션 컨트롤러가 없는 경우 ❌
+<img width="403" alt="스크린샷 2024-03-07 오후 5 05 42" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/83f7c28e-1fb9-4174-9567-3ca95460c404">
+
+계층적인 구조가 아닌, 설정화면이나 로그인 화면처럼 사용자가 임시로 방문하는 화면에 주로 사용한다.
+
+모달 형식으로 표시되고 뷰 컨트롤러는 이전 화면의 위에 오버레이 형태로 표시된다.
+
+overlay: 뷰 원본의 공간을 기준으로 그 위에 새로운 뷰를 중첩하여 쌓는 기능을 하는 수식어
+
+각각의 모달은 독립적인 관계이다.
+
+화면은 present(_:animated:completion:)메서드, dismiss(animated:completion:) 메서드통해 동작한다.
+
+## 🤔결과
+![ContainerViewController](https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/6cb8ea16-1672-4c1b-9493-9d32f59bb133)
+
+## 📚추가학습
+
+## 뷰컨트롤러 컨테이너는 또 어떤 클래스가 있는가?
+
+### UISplitViewController
+<img width="590" alt="ui-split-view-overview~dark@2x" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/0e8b344c-9e8c-4fd0-a0a0-c7e2a8fa634f">
+
+iPad / 화면을 두 영역으로 나누어서, 마스터/디테일 인터페이스를 구현
+
+예시) 한쪽에는 목록, 다른 한쪽에는 세부 정보
+
+SplitView는 Navigation Controller들에 담겨있는 child view controller들을 감싸고 있다.
+
+만약 Navigation Controller 없이 child View controller를 SplitView에 연결하면, SplitView가 알아서 Navigation Controller를 생성!!
+
+### **UIPageViewController**
+
+사용자가 좌우로 스와이프하여 페이지 간을 전환할 수 있는 인터페이스를 제공
+
+페이지 기반의 콘텐츠나 연속된 데이터 컬렉션을 보여줄 때 사용한다. ( 각 페이지는 뷰 컨트롤러로 관리)
+
+## 내비게이션 컨트롤러 관련 메서드가 왜 push / pop 인가?
+
+네비게이션 컨트롤러는 스택의 동작 방식으로 작동된다. 
+
+스택은 LIFO( Last in First Out)으로 마지막 추가된 항목이 가장 먼저 제거되는 원리로 유래되어서 관련의 메서드가 push, pop이다.
+
+</div>
+</details>
