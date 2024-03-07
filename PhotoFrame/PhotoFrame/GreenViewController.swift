@@ -34,17 +34,9 @@ class GreenViewController: UIViewController {
         print(#file, #line, #function, #column)
     }
     
-    @IBAction func nextButtonTouched(_ sender: Any) {
-        guard let yellowViewController = self.storyboard?.instantiateViewController(withIdentifier: "yellow") as? YellowViewController else { return }
-        
-        self.present(yellowViewController, animated: true)
-    }
-    
-    
-    
     
     @IBAction func closeButtonTouched(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
