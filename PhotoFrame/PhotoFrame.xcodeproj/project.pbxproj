@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6A9EB582B990B2800EB8F0A /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A9EB572B990B2800EB8F0A /* GreenViewController.swift */; };
+		D6A9EB5A2B99742400EB8F0A /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A9EB592B99742400EB8F0A /* YellowViewController.swift */; };
 		D6C9895C2B9568130018BB91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C9895B2B9568130018BB91 /* AppDelegate.swift */; };
 		D6C9895E2B9568130018BB91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C9895D2B9568130018BB91 /* SceneDelegate.swift */; };
 		D6C989602B9568130018BB91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C9895F2B9568130018BB91 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D6A9EB572B990B2800EB8F0A /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
+		D6A9EB592B99742400EB8F0A /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 		D6C989582B9568130018BB91 /* PhotoFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C9895B2B9568130018BB91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6C9895D2B9568130018BB91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				D6C9895B2B9568130018BB91 /* AppDelegate.swift */,
 				D6C9895D2B9568130018BB91 /* SceneDelegate.swift */,
 				D6C9895F2B9568130018BB91 /* ViewController.swift */,
+				D6A9EB572B990B2800EB8F0A /* GreenViewController.swift */,
+				D6A9EB592B99742400EB8F0A /* YellowViewController.swift */,
 				D6C989612B9568130018BB91 /* Main.storyboard */,
 				D6C989642B9568140018BB91 /* Assets.xcassets */,
 				D6C989662B9568140018BB91 /* LaunchScreen.storyboard */,
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A9EB582B990B2800EB8F0A /* GreenViewController.swift in Sources */,
 				D6C989602B9568130018BB91 /* ViewController.swift in Sources */,
 				D6C9895C2B9568130018BB91 /* AppDelegate.swift in Sources */,
 				D6C9895E2B9568130018BB91 /* SceneDelegate.swift in Sources */,
+				D6A9EB5A2B99742400EB8F0A /* YellowViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
