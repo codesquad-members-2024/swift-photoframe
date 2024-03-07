@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xb8-XQ-gY1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xb8-XQ-gY1">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="2283" y="-435"/>
         </scene>
-        <!--View Controller-->
+        <!--Green View Controller-->
         <scene sceneID="N2W-HR-cK3">
             <objects>
-                <viewController id="BDP-qx-ifR" sceneMemberID="viewController">
+                <viewController id="BDP-qx-ifR" customClass="GreenViewController" customModule="PhotoFrame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wsV-JF-YYj">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="다음"/>
                                 <connections>
-                                    <segue destination="kXO-2F-mtd" kind="presentation" modalPresentationStyle="pageSheet" id="a1A-pe-dRB"/>
+                                    <action selector="nextButtonTouched:" destination="BDP-qx-ifR" eventType="touchUpInside" id="Z6Y-ea-Asg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEC-sn-ADH">
+                                <rect key="frame" x="169" y="323" width="54" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="닫기"/>
+                                <connections>
+                                    <action selector="closeButtonTouched:" destination="BDP-qx-ifR" eventType="touchUpInside" id="cCW-xY-vMA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -110,14 +119,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrI-l2-cdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3025" y="-435"/>
+            <point key="canvasLocation" x="3024.6153846153843" y="-435.07109004739334"/>
         </scene>
-        <!--View Controller-->
+        <!--Yellow View Controller-->
         <scene sceneID="dZD-3Q-C2g">
             <objects>
-                <viewController id="kXO-2F-mtd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="yellow" id="kXO-2F-mtd" customClass="YellowViewController" customModule="PhotoFrame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wgh-9v-4HL">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6vT-Ra-uj8"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -126,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGR-xO-olp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3755" y="-435"/>
+            <point key="canvasLocation" x="3752" y="-435"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KyC-a4-H56">
@@ -154,7 +163,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
