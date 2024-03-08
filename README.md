@@ -668,3 +668,82 @@ SplitView는 Navigation Controller들에 담겨있는 child view controller들�
 
 </div>
 </details>
+
+&nbsp;
+
+<details>
+<summary>다른 화면 연결하기</summary>
+
+## 🎯주요 작업
+
+- [x]  탭바에 Second Scene을 설정
+- [x]  UIImageView를 추가해서 원하는 이미지 표시
+- [x]  Xcode 프로젝트에 앱 번들 리소스 추가
+
+## 📚학습 키워드
+
+### **Bundle Resource**
+<img width="898" alt="스크린샷 2024-03-08 오전 10 08 39" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/02b910da-824e-4f3e-bb2b-0ab23cf4e1b0">
+
+변경되지 않는 파일들이며, 앱이 실행될 때 읽을 수 있다.
+
+### **UIImageView**
+
+ 이미지를 화면에 표시하는 뷰. 
+
+이 뷰는 내부적으로 하나의 `UIImage`를 관리
+
+## 💻고민과 해결
+
+### 파일 추가할 때 **Copy items if needed 하는 이유**
+
+파일을 복사하여 추가하는 옵션
+
+옵션 없이 추가하면 프로젝트 폴더에 복사되지 않고, 원본의 레퍼런스를 참조하게 되므로, 꼭꼭꼭 체크하기!!
+
+### Create groups
+<img width="311" alt="스크린샷 2024-03-07 오후 7 10 29" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/26b1f750-bd41-4c86-83d9-8ece6ddf4cb9">
+
+1. Finder에서 폴더 내에 파일을 추가해도 프로젝트 폴더 내에서 반영이 안된다.
+2. Finder에서 폴더의 이름을 변경해도 프로젝트 내에서 폴더가 남아있다. (내부 파일은 사용 못함)
+3. Finder내에서 폴더를 삭제해서 프로젝트 내 폴더는 남아있다. (내부 파일은 사용 못함)
+4. 대부분의 Xcode 프로젝트에서 권장되는 방식
+
+### **Create folder references**
+<img width="311" alt="스크린샷 2024-03-07 오후 7 10 45" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/ece4e7d9-caaa-42d6-a1c1-661f0033b875">
+
+1. Finder의 폴더에 일대일 맵핑이 된다. (변경 내역이 반영된다.)
+2. Finder에서 폴더 내에 파일을 추가하면 프로젝트 폴더 내에도 파일이 추가된다. 
+3. Finder에서 폴더의 이름을 변경하면 프로젝트 내에서 폴더가 삭제된다.
+4. Finder에서 폴더를 삭제하면 프로젝트 내에서도 폴더가 삭제된다.
+
+🤔결과
+
+![다른 화면 연결하기](https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/9fd5cd55-4b37-4f42-a491-f0df0ff93d53)
+
+## 📚추가학습
+
+### UIImageView 와 UIImage 클래스는 각각 어떤 역할을 담당하나요!!??!!?
+
+**UIImageView**는 내부적으로 하나의 **UIImage**를 관리하는 뷰
+
+**UIImage**는 이미지 데이터를 나타내는 객체
+
+```swift
+let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+imageView.image = UIImage(named: "example")
+```
+
+이미지 뷰 속성들…
+
+- Scale To Fill
+- Aspect Fit
+- Aspect Fill
+- Top, Bottom, Left, Right…
+1. **Scale**은 가로x세로 비율을 유지하지 않는다
+2. **Aspect**는 비율을 유지한다.
+3. Fill은 단어 뜻 그대로여백을 남기지 않고 모두 "채운다".
+4. . **Fit**은 영역안에 이미지를 "맞춘다".
+
+</div>
+</details>
