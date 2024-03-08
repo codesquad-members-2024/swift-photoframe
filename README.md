@@ -747,3 +747,128 @@ imageView.image = UIImage(named: "example")
 
 </div>
 </details>
+
+<details>
+<summary>사진 앨범 선택하기</summary>
+
+## 🎯주요 작업
+
+- [x]  원하는 뷰를 앞-뒤로 배치하기
+- [x]  ImagePickerController 역할학습, 원하는 사진 불러오기
+
+## 📚학습 키워드
+
+### **UIImagePickerController**
+
+카메라나 앨범을 통해 이미지를 선택할 때 사용하는 컨트롤러, 
+
+- 즉석에서 촬영한 사진
+- 앨범에 저장된 사진
+- 앨범에 저장된 동영상 와 같이 선택해서 가져온다
+
+위의 기능들은 컨트롤러 내부에서 소스 유형을 설정할 수 있다.
+
+실행할 때는 화면을 전환하는 방식을 사용함
+
+- why? UIViewController를 상속받은 컨트롤러이기 때문에
+
+### Delegate를 활용함.
+
+앨범에서 사진을 가져오면, 가져온 이미지를 델리게이트로 지정된 객체에 메소드 호출을 통해 인자 값으로 전달
+
+→ 앱은 전달받은 결과를 사용할 수 있다.
+
+![image](https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/bcb4ad19-faaf-41a7-a6e2-f633f52b14fa)
+
+2가지 소스 유형이 deprecated
+
+### iOS 14이상부터 PHPicker View Controller를 권장한다.
+
+iOS 14에서 새로 추가됨
+
+UIImagePickerController와 같이 이미지와 비디오를 선택하는 기능을 제공하는 것이 동일하지만, 더 유연하게 사용이 가능하다.
+
+-> multiselect / zoom in or out / search 기능 제공
+
+## 💻고민과 해결
+
+카메라 롤: 앨범이라고 생각
+
+### 권한 설정 info.plist
+
+ **UIImagePickerController**
+
+- 앨범에 접근할려면..
+    
+    `NSPhotoLibraryUsageDescription` ****를 Info.plist 추가
+    
+    → iOS11부터 유저가 선택한 사진에 대해서는, 유저가 선택이라는 명시적인 행동을 하기 때문에, 별도의 권한 허용 과정없이 앱에게 전달된다.
+    
+- 카메라를 사용할려면 …
+    
+    `NSCameraUsageDescription` 를 Info.plist 추가
+    
+
+**PHPickerViewController**
+
+앨범에서 사진이나 비디오를 선택할 때 권한 요청 없이 사용할 수 있지만, 카메라 기능을 제공을 안한다. why? 
+
+→ iOS 14 이상에서 도입된 새로운 사진 선택기, 애플리케이션에 사진 앨범 접근 권한을 요청하지 않아도 되도록 설계되었기 때문에
+
+### info에 권한설정을 안했는데 앨범이 들어가지는 이유
+
+```swift
+@IBAction func selectButtonTouched(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        
+        self.present(picker, animated: false)
+    }
+```
+
+유저가 사진을 선택하기 전에, 전체 사진에 대한 권한을 앱에게 넘기는 것에 대해 마찰이라고 애플이 생각함.
+
+iOS11부터 UIImagePickerController의 개인정보 및 권한부분을 개편함.
+
+ 유저가 선택한 사진에 대해서는, 유저가 선택이라는 명시적인 행동을 하기 때문에, 별도의 권한 허용 과정없이 앱에게 전달된다.
+
+### **UINavigationControllerDelegate채택하는 이유??**
+
+<img width="462" alt="스크린샷 2024-03-08 오후 12 47 02" src="https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/5ac6237d-525b-4e83-88a1-086eb468d91a">
+
+UIImagePickerController가 내부적으로 UINavigationController를 사용하기 때문이다.
+
+UIImagePickerController의 델리게이트를 올바르게 작동하기 위해
+
+실제로 UINavigationControllerDelegate의 메서드들을 구현할 필요는 없지만, 프로토콜 채택은 필요
+
+🤔결과
+
+![마지지막막](https://github.com/codesquad-members-2024/swift-photoframe/assets/104732020/86acf019-dbd6-4c3f-8564-5b5dc04268bb)
+
+## 📚추가학습
+
+### 시스템 컨트롤러들에 대한 델리게이트(Delegate)와 프로토콜(Protocol) 상관 관계
+
+만약에 Textfield에 무엇이 입력되었는지 실시간으로 알 수 있는 방법은?
+
+→ 사용자가 버튼하나 누를때마다 반응이 일어나도록 조건문과 스위치문을 쓸 것인가? 🙅‍♂️
+
+바로 delegate가 필요한 것 ‼️ → 사용자의 필요에 맞추어 여러가지 메서드를 가지고 있다.
+
+### protocol
+
+기능을 구현하는 것이 아닌, 선언만 한다.
+
+### delegate
+
+클래스나 구조체가 특정 작업을 직접 처리하는 것이 아니라, delegate객체에게 이를 처리하도록 요청한다.
+
+## 결론
+
+delegate로 동작할 객체는 시스템 컨트롤러가 정의한 델리게이트 프로토콜을 채택하여 필요한 메서드를 구현한다.
+
+이 과정을 통해 시스템 컨트롤러는 델리게이트 객체에게 작업을 위임할 수 있는 것이다.
+
+</div>
+</details>
